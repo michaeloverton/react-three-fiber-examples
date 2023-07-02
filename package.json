@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-three/drei": "9.77.1",
     "@react-three/fiber": "8.13.3",
+    "@react-three/postprocessing": "^2.14.13",
     "@types/three": "0.152.1",
     "babel-plugin-glsl": "^1.0.0",
     "react": "18.2.0",
