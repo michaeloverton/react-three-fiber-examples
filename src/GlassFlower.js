@@ -2,6 +2,7 @@ import { Canvas, useLoader } from '@react-three/fiber'
 import { Environment, Lightformer, OrbitControls, MeshTransmissionMaterial, useGLTF } from '@react-three/drei'
 import { EffectComposer, Bloom, LUT, BrightnessContrast, HueSaturation } from '@react-three/postprocessing'
 import { LUTCubeLoader } from 'postprocessing'
+import { Suspense } from 'react'
 
 function Model(props) {
   const { nodes } = useGLTF('/flower-transformed.glb')

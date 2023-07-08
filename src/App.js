@@ -9,7 +9,16 @@ function Overlay() {
   const [hidden, setHidden] = useState(false)
 
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', ...(hidden && { display: 'none' }) }}>
+    <div
+      style={{
+        // pointerEvents: 'none', use this to allow clicking through the div
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        ...(hidden && { display: 'none' })
+      }}>
       <div style={{ background: 'white', position: 'absolute', bottom: 40, left: 90, fontSize: '13px' }}>
         <Link to="/">home</Link> {'    '}
         <Link to="/other">instances</Link> {'    '}
@@ -33,7 +42,9 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <div style={{ height: '100%' }}>
-        <CanvasPage />
+        <Suspense fallback={<Loading />}>
+          <CanvasPage />
+        </Suspense>
         <Overlay />
       </div>
     )
@@ -42,7 +53,9 @@ const router = createBrowserRouter([
     path: '/other',
     element: (
       <div style={{ height: '100%' }}>
-        <CanvasPageTwo />
+        <Suspense fallback={<Loading />}>
+          <CanvasPageTwo />
+        </Suspense>
         <Overlay />
       </div>
     )
@@ -51,7 +64,9 @@ const router = createBrowserRouter([
     path: '/flower',
     element: (
       <div style={{ height: '100%' }}>
-        <GlassFlower />
+        <Suspense fallback={<Loading />}>
+          <GlassFlower />
+        </Suspense>
         <Overlay />
       </div>
     )
@@ -59,9 +74,5 @@ const router = createBrowserRouter([
 ])
 
 export default function App() {
-  return (
-    <Suspense fallback={<Loading />}>
-      <RouterProvider router={router} />
-    </Suspense>
-  )
+  return <RouterProvider router={router} />
 }

@@ -7,6 +7,7 @@ import { Matrix4, MeshStandardMaterial } from 'three'
 import { ConvertedGltf } from './ConvertedGltf'
 import { InstancedRock } from './InstancedRock'
 import { ConvertedGltfShader } from './ConvertedGltfShader'
+import { Suspense } from 'react'
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
